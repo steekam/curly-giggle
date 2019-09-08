@@ -18,17 +18,17 @@ def init_graph():
 
     # Add edges
     edges = [
-        ("Karen", "J1", 2.8), ("J1", "J2", 6.7), ("J2", "Langata", 2.8),
-        ("J2", "J3", 6.5), ("J1", "J4", 2.8), ("J4", "J5", 9.2),
-        ("J5", "Kilimani", 2.5), ("J3", "J12", 6), ("J3", "J13", 7.6),
-        ("Kilimani", "J12", 2.3), ("J12", "CBD", 2.5), ("CBD", "J13", 6),
-        ("J13", "ImaraDaima", 8.6), ("Donholm", "HillView", 20),
-        ("ImaraDaima", "Donholm", 6), ("HillView", "Kasarani", 1.7),
+        ("Karen", "J1", 2.8), ("J1", "J2", 6), ("J2", "Langata", 2.6),
+        ("J2", "J3", 5.4), ("J1", "J4", 2.6), ("J4", "J5", 9.7),
+        ("J5", "Kilimani", 0.5), ("J3", "J12", 6.7), ("J3", "J13", 6.2),
+        ("Kilimani", "J12", 2.3), ("J12", "CBD", 1.5), ("CBD", "J13", 5.5),
+        ("J13", "ImaraDaima", 3.9), ("Donholm", "HillView", 20),
+        ("ImaraDaima", "Donholm", 10.4), ("HillView", "Kasarani", 1.7),
         ("Kasarani", "Kahawa", 11.5), ("Karen", "J6", 4),
         ("J6", "J4", 6), ("J6", "Gitaru", 10), ("J6", "J7", 6), ("Gitaru", "J7", 6),
         ("J7", "J8", 7), ("J8", "Loresho", 2), ("J8", "J9", 3), ("J9", "J10", 4),
         ("J9", "Lavington", 7), ("Lavington", "J11", 0.5), ("J10", "J11", 7),
-        ("J10", "Parklands", 3), ("J11", "Kilimani", 0.5), ("J4", "J3", 10.8)
+        ("J10", "Parklands", 3), ("J11", "Kilimani", 0.5), ("J4", "J3", 9)
     ]
     G.add_weighted_edges_from(edges)
 
