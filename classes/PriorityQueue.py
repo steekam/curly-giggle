@@ -30,9 +30,9 @@ class PriorityQueue:
     # ?Push item, but if item with higher cost exists, replace
     def replace_if_higher_exists(self, item):
         cost, node = item
-        existing_item = [_node for _node in self.queue if _node[1] == node]
+        existing_item = [_node for _node in self.queue if _node[1] == node][0]
 
-        if existing_item and existing_item[0][0] > cost:
+        if existing_item[0] > cost:
             self.remove_item(existing_item[0])
             self.push(item)
 
