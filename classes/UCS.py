@@ -1,4 +1,4 @@
-from heapq import heapify, heappop, heappush
+from classes.PriorityQueue import PriorityQueue
 
 
 class UcsTraverser:
@@ -10,19 +10,19 @@ class UcsTraverser:
         self.least_cost = 0
 
     def UCS(self, graph, start_node, goal_node):
-        queue = []
+        queue = PriorityQueue()
         # Init with start node and cost of zero
-        heappush(queue, (0, start_node))
+        queue.push((0, start_node))
         # ?Init path root
         self.paths.update({(0, start_node): [start_node]})
 
         iteration = 1
         while queue:
             # print("Priority queue Iteration ",
-            #       iteration, [{tuple[1]: tuple[0]} for tuple in queue], end="\n")
+            #       iteration, [{tuple[1]: tuple[0]} for tuple in queue.queue], end="\n")
             # iteration += 1
 
-            cost, current_node = heappop(queue)
+            cost, current_node = queue.pop()
             if current_node == goal_node:
                 self.visited.append(current_node)
                 self.least_cost = cost
@@ -40,15 +40,10 @@ class UcsTraverser:
                 total_cost = round(
                     cost + graph[current_node][child]['weight'], 1)
 
-                if child not in self.visited and child not in [tuple[1] for tuple in queue]:
-                    heappush(queue, (total_cost, child))
-                elif child in [tuple[1] for tuple in queue]:
-                    existing_tuple = [
-                        val for val in queue if val[1] == child][0]
-                    # ?Replace if higher cost exists in priority queue
-                    if existing_tuple[0] > total_cost:
-                        queue.remove(existing_tuple)
-                        heappush(queue, (total_cost, child))
+                if child not in self.visited and child not in [tuple[1] for tuple in queue.queue]:
+                    queue.push((total_cost, child))
+                elif child in [tuple[1] for tuple in queue.queue]:
+                    queue.replace_if_higher_exists((total_cost, child))
 
                 # ?Add value to paths
                 parentPath = self.paths.get((cost, current_node))
