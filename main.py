@@ -35,9 +35,9 @@ def init_graph():
     # Set positions
     node_positions = {
         "Karen": (0, 0), "J6": (0, 8), "J1": (4, -4), "J4": (6, -4), "J7": (0, 14), "Gitaru": (-3, 5), "J5": (8, -4),
-        "J2": (5, -10), "Langata": (5, -16), "J3": (8, -10), "J8": (4, 14), "Loresho": (4, 22), "J9": (6, 14), "J10": (8, 14),
-        "Parklands": (10, 22), "Lavington": (6, 6), "J11": (12, 6), "Kilimani": (10, 2), "J12": (12, 0), "CBD": (14, 0), "J13": (14, -5),
-        "ImaraDaima": (16, -7), "Donholm": (16, 4), "HillView": (16, 12), "Kasarani": (16, 20), "Kahawa": (18, 28)
+        "J2": (5, -10), "Langata": (5, -18), "J3": (8, -10), "J8": (4, 14), "Loresho": (4, 22), "J9": (6, 14), "J10": (8, 14),
+        "Parklands": (10, 22), "Lavington": (6, 6), "J11": (12, 6), "Kilimani": (10, 2), "J12": (12, 0), "CBD": (14, 0), "J13": (14, -8),
+        "ImaraDaima": (16, -10), "Donholm": (16, 4), "HillView": (16, 12), "Kasarani": (16, 20), "Kahawa": (18, 28)
     }
 
     for node_key in node_positions:
