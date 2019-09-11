@@ -33,7 +33,7 @@ class PriorityQueue:
         existing_item = [_node for _node in self.queue if _node[1] == node][0]
 
         if existing_item[0] > cost:
-            self.remove_item(existing_item[0])
+            self.remove_item(existing_item)
             self.push(item)
 
     # ?Specifies the key to be used to sort tuple

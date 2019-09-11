@@ -17,7 +17,7 @@ class UcsTraverser:
         self.paths.update({(0, start_node): [start_node]})
 
         iteration = 1
-        while queue:
+        while queue.queue:
             # print("Priority queue Iteration ",
             #       iteration, [{tuple[1]: tuple[0]} for tuple in queue.queue], end="\n")
             # iteration += 1

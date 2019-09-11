@@ -85,5 +85,6 @@ if __name__ == '__main__':
     ucsTraverser = UcsTraverser()
     ucsTraverser.UCS(graph, "Karen", "ImaraDaima")
     draw_colored_graph(graph, ucsTraverser.visited, "UCS Visited Nodes")
+    draw_colored_graph(graph, ucsTraverser.least_cost_path, "UCS Optimal Path")
 
     plt.show()
