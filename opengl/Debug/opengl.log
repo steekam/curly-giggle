@@ -1,0 +1,7 @@
+﻿  House.cpp
+C:\Users\Kamau Wanyee\source\repos\opengl\House.cpp(21,41): warning C4244:  'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Kamau Wanyee\source\repos\opengl\House.cpp(21,25): warning C4244:  'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Kamau Wanyee\source\repos\opengl\House.cpp(48,23): warning C4305:  'initializing': truncation from 'double' to 'GLfloat'
+C:\Users\Kamau Wanyee\source\repos\opengl\House.cpp(65,12): warning C4244:  'argument': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\Kamau Wanyee\source\repos\opengl\House.cpp(158,27): warning C4305:  'argument': truncation from 'double' to 'GLfloat'
+  opengl.vcxproj -> C:\Users\Kamau Wanyee\source\repos\opengl\Debug\opengl.exe
