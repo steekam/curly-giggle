@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 from classes.BFS import BfsTraverser
 from classes.UCS import UcsTraverser
+from classes.Astar import Astar
 
 
 # Init graph with data
@@ -43,6 +44,17 @@ def init_graph():
     for node_key in node_positions:
         G.node[node_key]['pos'] = node_positions[node_key]
 
+    # Set heuristics
+    heuristics = {
+        "Karen": 21.22, "Gitaru": 25, "Loresho": 16, "Lavington": 12, "Parklands": 10,
+        "Kilimani": 11, "Langata": 15, "CBD": 8, "Donholm": 4, "HillView": 12, "Kasarani": 11,
+        "Kahawa": 16, "ImaraDaima": 0, "J1": 19, "J2": 14.5, "J3": 10, "J4": 17, "J5": 12,
+        "J6": 22, "J7": 24, "J8": 17, "J9": 14, "J10": 9, "J11": 11.7, "J12": 9, "J13": 4
+    }
+
+    for node_key in heuristics:
+        G.node[node_key]['heuristics'] = heuristics[node_key]
+
     return G
 
 
@@ -68,23 +80,33 @@ def draw_colored_graph(graph, visited_nodes, figure_title):
     edge_colors = [
         'darkturquoise' if edge not in peru_colored_edges else 'peru' for edge in graph.edges()
     ]
-    nx.draw_networkx(graph, node_positions, node_color=node_colors, node_size=400)
-    nx.draw_networkx_edges(graph, node_positions, width=2, edge_color=edge_colors)
-    nx.draw_networkx_edge_labels(graph, node_positions, edge_color=edge_colors, edge_labels=arc_weights)
+    nx.draw_networkx(graph, node_positions,
+                     node_color=node_colors, node_size=400)
+    nx.draw_networkx_edges(graph, node_positions,
+                           width=2, edge_color=edge_colors)
+    nx.draw_networkx_edge_labels(
+        graph, node_positions, edge_color=edge_colors, edge_labels=arc_weights)
 
 
 if __name__ == '__main__':
     graph = init_graph()
 
     # Breadth First Search
-    bfsTraverser = BfsTraverser()
-    bfsTraverser.BFS(graph, "Karen", "ImaraDaima")
-    draw_colored_graph(graph, bfsTraverser.visited, "BFS Visited Nodes")
+    # bfsTraverser = BfsTraverser()
+    # bfsTraverser.BFS(graph, "Karen", "ImaraDaima")
+    # draw_colored_graph(graph, bfsTraverser.visited, "BFS Visited Nodes")
 
-    # Uniform Cost Search
-    ucsTraverser = UcsTraverser()
-    ucsTraverser.UCS(graph, "Karen", "ImaraDaima")
-    draw_colored_graph(graph, ucsTraverser.visited, "UCS Visited Nodes")
-    draw_colored_graph(graph, ucsTraverser.least_cost_path, "UCS Optimal Path")
+    # # Uniform Cost Search
+    # ucsTraverser = UcsTraverser()
+    # ucsTraverser.UCS(graph, "Karen", "ImaraDaima")
+    # draw_colored_graph(graph, ucsTraverser.visited, "UCS Visited Nodes")
+    # draw_colored_graph(graph, ucsTraverser.least_cost_path, "UCS Optimal Path")
+
+    # # A* search
+    astar = Astar()
+    astar.traverser(graph, "Karen", "ImaraDaima")
+    visited_nodes = list(astar.explored.keys())
+    draw_colored_graph(graph, visited_nodes, "Astar Visited Nodes")
+    draw_colored_graph(graph, astar.path, "Astar Optimal Path")
 
     plt.show()
