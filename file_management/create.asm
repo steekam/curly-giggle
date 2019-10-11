@@ -12,4 +12,4 @@ SECTION .text
     int 80h
 
 SECTION .data
-  filename db 'myFile.txt'
+  filename db 'myFile.txt',0h

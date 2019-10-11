@@ -25,4 +25,4 @@ section .text
 
 section .data
   filename db 'myFile.txt', 0h
-  contents db '-updated-', 0h
+  contents db '-updated-'
