@@ -20,7 +20,7 @@ SECTION .text
   mov eax, SYS_READ
   mov ebx, STDIN
   mov ecx, firstNumber
-  mov edx, 2 ;Size of input
+  mov edx, 3 ;Size of input
   int 80h
 
   ;Output msg2
@@ -34,7 +34,7 @@ SECTION .text
   mov eax, SYS_READ
   mov ebx, STDIN
   mov ecx, secondNumber
-  mov edx, 2 ;Size of input
+  mov edx, 3 ;Size of input
   int 80h
 
   ; Convert input from ASCII to Decimal
@@ -101,6 +101,6 @@ SECTION .data
   newlineLen equ $-newline
 
 SECTION .bss
-  firstNumber resb 3
-  secondNumber resb 3
-  result resb 3
+  firstNumber resb 4
+  secondNumber resb 4
+  result resb 2
