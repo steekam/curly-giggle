@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from classes.BFS import BfsTraverser
 from classes.UCS import UcsTraverser
 from classes.Astar import Astar
+from classes.GreedyBFS import GreedyBFS
 
 
 # Init graph with data
@@ -103,10 +104,17 @@ if __name__ == '__main__':
     # draw_colored_graph(graph, ucsTraverser.least_cost_path, "UCS Optimal Path")
 
     # # A* search
-    astar = Astar()
-    astar.traverser(graph, "Karen", "ImaraDaima")
-    visited_nodes = list(astar.explored.keys())
-    draw_colored_graph(graph, visited_nodes, "Astar Visited Nodes")
-    draw_colored_graph(graph, astar.path, "Astar Optimal Path")
+    # astar = Astar()
+    # astar.traverser(graph, "Karen", "ImaraDaima")
+    # visited_nodes = list(astar.explored.keys())
+    # draw_colored_graph(graph, visited_nodes, "Astar Visited Nodes")
+    # draw_colored_graph(graph, astar.path, "Astar Optimal Path")
 
-    plt.show()
+    # GreedyBFS
+    greedybfs = GreedyBFS()
+    greedybfs.traverser(graph, "Karen", "ImaraDaima")
+    visited_nodes = list(greedybfs.visited.keys())
+    # draw_colored_graph(graph, visited_nodes, "GreedyBFS Visited Nodes")
+    # draw_colored_graph(graph, greedybfs.path, "GreedyBFS Optimal Path")
+
+    # plt.show()
