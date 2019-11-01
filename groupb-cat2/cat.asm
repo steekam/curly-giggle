@@ -1,7 +1,6 @@
 %include "procs.asm"
 
-SYS_OUT equ 1
-SYS_IN equ 0
+STD_OUT equ 1
 SYS_WRITE equ 4
 SYS_READ equ 3
 SYS_EXIT equ 1
@@ -9,7 +8,7 @@ SYS_EXIT equ 1
 ;Macros
 %macro printer 2
   mov eax, SYS_WRITE
-  mov ebx, SYS_OUT
+  mov ebx, STD_OUT
   mov ecx, %1
   mov edx, %2
   int 80h
@@ -21,12 +20,9 @@ section .text
   
   mov ecx, 4 ; array size
   mov ebx, 0 ; init sum to 0
-  mov eax, arrayx
+  mov eax, x ;move array to eax
 
   call addition
-
-  or ebx, 30h
-  mov [sum], ebx
 
   printer sumMsg, sumMsgLen
   printer sum, 1
@@ -39,7 +35,7 @@ section .text
 
 
 section .data
-  arrayx db 1,2,3,1
+  x db 1,2,3,1
   sumMsg db "The sum is: "
   sumMsgLen equ $-sumMsg
   lf db 10
